@@ -3,9 +3,13 @@ import './App.css'
 import Header from './components/Header'
 
 function App() {
-  const [items, setItems] = useState<string[]>(["Typescript", "Javascript"])
+  const [items, setItems] = useState<string[]>([])
   const [inputValue, setInputValue] = useState<string>("")
   
+  const handleSubmit = () => {
+    setItems((prev) => [...prev, inputValue])
+    setInputValue("")
+  }
   return (
     <>
       <div className='h-[100vh] flex flex-col justify-center items-center'>
