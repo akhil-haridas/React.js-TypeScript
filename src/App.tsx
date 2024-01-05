@@ -19,7 +19,7 @@ function App() {
         </h1>
         <Header />
         <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
-          <input type="text" className="w-full" />
+          <input type="text" className="w-full" onChange={(e)=> setInputValue(e.target.value)}/>
           <button
             type="submit"
             className="w-full bg-blue-950 p-1 m-3 text-white"
