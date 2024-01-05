@@ -4,6 +4,7 @@ import Header from './components/Header'
 
 function App() {
   const [items, setItems] = useState<string[]>(["Typescript", "Javascript"])
+  const [inputValue, setInputValue] = useState<string>("")
   
   return (
     <>
