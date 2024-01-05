@@ -6,7 +6,8 @@ function App() {
   const [items, setItems] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e:React.FormEvent) => {
+    e.preventDefault()
     setItems((prev) => [...prev, inputValue]);
     setInputValue("");
   };
@@ -17,7 +18,7 @@ function App() {
           React Todo-List
         </h1>
         <Header />
-        <form className="w-[350px] flex items-center flex-col p-10">
+        <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
           <input type="text" className="w-full" />
           <button
             type="submit"
