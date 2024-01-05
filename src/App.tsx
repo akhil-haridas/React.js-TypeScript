@@ -2,15 +2,24 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 
+type Items = {
+  title: string;
+  id: string;
+}
+
 function App() {
-  const [items, setItems] = useState<string[]>([]);
+  const [items, setItems] = useState<Items[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSubmit = (e:React.FormEvent) => {
     e.preventDefault()
-    setItems((prev) => [...prev, inputValue]);
+    setItems((prev) => [...prev, {title:inputValue,id:Date.now().toString()}]);
     setInputValue("");
   };
+
+  const handleDelete = (value:string) => {
+    setItems((prev)=> prev.filter((data)=> data.id !== value))
+  }
   return (
     <>
       <div className="h-[100vh] flex flex-col justify-center items-center">
@@ -19,7 +28,7 @@ function App() {
         </h1>
         <Header />
         <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
-          <input type="text" className="w-full" onChange={(e)=> setInputValue(e.target.value)}/>
+          <input type="text" className="w-full" value={inputValue} onChange={(e)=> setInputValue(e.target.value)}/>
           <button
             type="submit"
             className="w-full bg-blue-950 p-1 m-3 text-white"
@@ -28,9 +37,9 @@ function App() {
           </button>
           <section className="h-52 overflow-auto w-full ">
             {items.map((data) => (
-              <div key={data} className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1">
-                <p className="text-white">data</p>
-                <button>
+              <div key={data.id} className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1">
+                <p className="text-white">{data.title}</p>
+                <button onClick={()=>handleDelete(data.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
