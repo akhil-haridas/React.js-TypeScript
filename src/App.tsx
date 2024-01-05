@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 
 function App() {
+  const [items, setItems] = useState<string[]>(["Typescript", "Javascript"])
+  
   return (
     <>
       <div className='h-[100vh] flex flex-col justify-center items-center'>
