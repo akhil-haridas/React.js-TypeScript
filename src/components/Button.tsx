@@ -1,11 +1,12 @@
 type Button = {
     children: JSX.Element | string;
-    className:string
+    className?: string;
+    onClick?: () => void
 }
 
 export const Button = ({ children, className }:Button) => {
   return (
-      <button type="submit" className={`bg-blue-950 p-1 m-3 text-white ${className}`}>
+      <button type="submit" className={`${className}`}>
       {children}
     </button>
   );

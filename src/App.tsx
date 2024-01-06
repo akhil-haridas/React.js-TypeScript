@@ -7,21 +7,24 @@ import { Button } from "./components/Button";
 type Items = {
   title: string;
   id: string;
-}
+};
 
 function App() {
   const [items, setItems] = useState<Items[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
-  const handleSubmit = (e:React.FormEvent) => {
-    e.preventDefault()
-    setItems((prev) => [...prev, {title:inputValue,id:Date.now().toString()}]);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setItems((prev) => [
+      ...prev,
+      { title: inputValue, id: Date.now().toString() },
+    ]);
     setInputValue("");
   };
 
-  const handleDelete = (value:string) => {
-    setItems((prev)=> prev.filter((data)=> data.id !== value))
-  }
+  const handleDelete = (value: string) => {
+    setItems((prev) => prev.filter((data) => data.id !== value));
+  };
   return (
     <>
       <div className="h-[100vh] flex flex-col justify-center items-center">
@@ -29,16 +32,22 @@ function App() {
           React Todo-List
         </h1>
         <Header />
-        <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
+        <form
+          className="w-[350px] flex items-center flex-col p-10"
+          onSubmit={handleSubmit}
+        >
           <Input inputValue={inputValue} setInputValue={setInputValue} />
           <Button className={"bg-blue-950 p-1 m-3 text-white w-full"}>
             Add
-            </Button>
+          </Button>
           <section className="h-52 overflow-auto w-full ">
             {items.map((data) => (
-              <div key={data.id} className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1">
+              <div
+                key={data.id}
+                className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1"
+              >
                 <p className="text-white">{data.title}</p>
-                <button onClick={()=>handleDelete(data.id)}>
+                <Button onClick={() => handleDelete(data.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -48,7 +57,7 @@ function App() {
                     <path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path>
                     <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
                   </svg>
-                </button>
+                </Button>
               </div>
             ))}
           </section>
