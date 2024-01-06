@@ -4,9 +4,9 @@ type Button = {
     onClick?: () => void
 }
 
-export const Button = ({ children, className }:Button) => {
+export const Button = ({ children, className , onClick}:Button) => {
   return (
-      <button type="submit" className={`${className}`}>
+      <button type="submit" className={`${className}`} onClick={onClick}>
       {children}
     </button>
   );
