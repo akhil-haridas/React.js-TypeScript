@@ -1,6 +1,12 @@
 import { Button } from "./Button";
+import { Items } from "./types/utils";
 
-export default function List({ items, setItems }) {
+type ItemsList = {
+  items: Items[];
+  setItems: React.Dispatch<React.SetStateAction<Items[]>>;
+};
+
+export default function List({ items, setItems }: ItemsList) {
   const handleDelete = (value: string) => {
     setItems((prev) => prev.filter((data) => data.id !== value));
   };

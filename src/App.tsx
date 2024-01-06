@@ -3,11 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import { Input } from "./components/input";
 import { Button } from "./components/Button";
-
-type Items = {
-  title: string;
-  id: string;
-};
+import { type Items } from "./components/types/utils";
 
 function App() {
   const [items, setItems] = useState<Items[]>([]);
