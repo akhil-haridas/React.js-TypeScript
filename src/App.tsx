@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import { Input } from "./components/input";
 
 type Items = {
   title: string;
@@ -28,7 +29,7 @@ function App() {
         </h1>
         <Header />
         <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
-          <input type="text" className="w-full" value={inputValue} onChange={(e)=> setInputValue(e.target.value)}/>
+          <Input inputValue={}/>
           <button
             type="submit"
             className="w-full bg-blue-950 p-1 m-3 text-white"
