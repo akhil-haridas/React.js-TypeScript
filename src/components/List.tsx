@@ -1,9 +1,9 @@
 import { Button } from "./Button";
-import { Items } from "./types/utils";
+import { Items, ReactSetState } from "./types/utils";
 
 type ItemsList = {
   items: Items[];
-  setItems: React.Dispatch<React.SetStateAction<Items[]>>;
+  setItems: ReactSetState<Items[]>;
 };
 
 export default function List({ items, setItems }: ItemsList) {
