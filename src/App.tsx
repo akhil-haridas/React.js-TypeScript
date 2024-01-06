@@ -30,12 +30,6 @@ function App() {
         <Header />
         <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
           <Input inputValue={inputValue} setInputValue={setInputValue}/>
-          <button
-            type="submit"
-            className="w-full bg-blue-950 p-1 m-3 text-white"
-          >
-            ADD
-          </button>
           <section className="h-52 overflow-auto w-full ">
             {items.map((data) => (
               <div key={data.id} className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1">
