@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { Input } from "./components/input";
 import { Button } from "./components/Button";
 import { type Items } from "./components/types/utils";
+import List from "./components/List";
 
 function App() {
   const [items, setItems] = useState<Items[]>([]);
@@ -35,7 +36,7 @@ function App() {
             Add
           </Button>
           <section className="h-52 overflow-auto w-full ">
-
+            <List items={items} setItems={setItems}/>
           </section>
         </form>
       </div>
