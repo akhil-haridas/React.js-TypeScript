@@ -1,5 +1,5 @@
 type Button = {
-    children: JSX.Element;
+    children: JSX.Element | string;
     className:string
 }
 

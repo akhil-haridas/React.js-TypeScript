@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { Input } from "./components/input";
+import { Button } from "./components/Button";
 
 type Items = {
   title: string;
@@ -29,7 +30,10 @@ function App() {
         </h1>
         <Header />
         <form className="w-[350px] flex items-center flex-col p-10" onSubmit={handleSubmit}>
-          <Input inputValue={inputValue} setInputValue={setInputValue}/>
+          <Input inputValue={inputValue} setInputValue={setInputValue} />
+          <Button className={"bg-blue-950 p-1 m-3 text-white w-full"}>
+            Add
+            </Button>
           <section className="h-52 overflow-auto w-full ">
             {items.map((data) => (
               <div key={data.id} className="flex justify-between py-2 border border-slate-200 pl-2 mb-2 mr-1">
