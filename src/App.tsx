@@ -7,7 +7,7 @@ import { type Items } from "./components/types/utils";
 import List from "./components/List";
 
 function App() {
-  // const [items, setItems] = useState<Items[]>([]);
+  const [items, setItems] = useState<Items[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
